@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int rc;
+    printf("Enter no of rows (its a square matrix so no. columns will be same) : ");
+    scanf("%d",&rc);
+    int matrix1[rc][rc];
+    int matrix2[rc][rc];
+    int matrix3[rc][rc];
+
+    int i,j;
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("Enter element for matrix 1 at (%d,%d) : ",i+1,j+1);
+        scanf("%d",&matrix1[i][j]);
+        }
+    }
+
+    printf("\n");
+
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("Enter element for matrix 2 at (%d,%d) : ",i+1,j+1);
+        scanf("%d",&matrix2[i][j]);
+        }
+    }
+
+
+   /* for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("Enter element at (%d,%d) : %d\n",i+1,j+1,matrix[i][j]);
+        }
+    }*/
+
+    printf("\n    **THE MATRIX 1**    \n\n");
+
+     for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("%5d  ",matrix1[i][j]);
+        }
+        printf("\n\n");
+    }
+
+     printf("\n\n\n    **THE MATRIX2**    \n\n");
+
+     for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("%5d  ",matrix2[i][j]);
+        }
+        printf("\n\n");
+    }
+
+
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        int x=0;
+        for (int k = 0; k < rc; k++)
+        {
+            x += matrix1[i][k] * matrix2[k][j];
+        }
+        matrix3[i][j]=x;
+        }
+    }
+
+    printf("\n\n\n    **THE MATRIX 1 * MATRIX 2**    \n\n");
+
+
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("%7d  ",matrix3[i][j]);
+        }
+        printf("\n\n\n\n");
+    }
+
+
+
+
+
+    return 0;;
+}
