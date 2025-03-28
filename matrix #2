@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+
+void inputmatrix(int rc, int arr[rc][rc] , char name[])
+{
+    printf("\n\n\n    **%s**    \n\n", name);
+    int i,j;
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("Enter element for at (%d,%d) : ",i+1,j+1);
+        scanf("%d",&arr[i][j]);
+        }
+    }
+}
+
+void printmatrix(int rc, int arr[rc][rc], char name[])
+{
+    printf("\n\n\n    **%s**    \n\n", name);
+     for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        printf("%5d  ",arr[i][j]);
+        }
+        printf("\n\n");
+    }
+}
+
+int main()
+{
+    int rc;
+    printf("Enter no of rows (its a square matrix so no. columns will be same) : ");
+    scanf("%d",&rc);
+    int matrix1[rc][rc];
+    int matrix2[rc][rc];
+    int matrix3[rc][rc];
+
+    int i,j;
+    inputmatrix(rc,matrix1,"MATRIX 1");
+    inputmatrix(rc,matrix2,"MATRIX 2");
+
+    printmatrix(rc,matrix1,"MATRIX 1");
+    printmatrix(rc,matrix2,"MATRIX 2");
+
+
+    for(int i=0;i<rc;i++)
+    {
+        for(int j=0;j<rc;j++)
+        {
+        int x=0;
+        for (int k = 0; k < rc; k++)
+        {
+            x += matrix1[i][k] * matrix2[k][j];
+        }
+        matrix3[i][j]=x;
+        }
+    }
+
+    printmatrix(rc,matrix3,"MATRIX 1 * MATRIX 2");
+
+    return 0 ;
+}
